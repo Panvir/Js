@@ -63,7 +63,38 @@ console.log(tinderUser.hasOwnProperty('isLoggedIn'));//return true and flase
 
 //baki properts dekhn lyi objects di console te jake dkehlo yr declare krk ki ki properts ya prototype ne
 
+//de structuring of objects
 
+const course={
+    course:"Js in hindi",
+    price:"999",
+    courseInstructor:"Hitesh"
+}
 
+// course.courseInstructor()
+//easy treeka to write is
+const {courseInstructor}=course//yaha course obkect se courseinstricte vlaue extra t krli hai
+console.log(courseInstructor);
 
+//apne aap bhi name de skte hai
+const {courseInstructor:instructor}=course//yaha course obkect se courseinstricte vlaue extra t krli hai
+console.log(instructor);
 
+// const navbar=({company})=>{//ye destruturing hi hai
+
+// }
+
+// navbar(company="hitesh")
+
+// {//json aisa hta hai key and value both are strings
+//     "name":"hitesh",
+//     "coursename":"js in hindi",
+//     "price":"free"
+// }
+
+[
+    {},
+    {},
+    {}
+]
+//json(Javascript onject notation) formatter acha dikhat ahai beaitigy krk dikhat ahai
