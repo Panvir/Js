@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML events</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+    // document.getElementById('owl').onclick=()=>{
+    //     alert(`owl clicked`)
+    // }
+
+//attachEvent() ye internet explorer te chlande c
+
+ // kya kya imp hai evenlister ch given below
+    //type.timestamp,defaultPrevented
+    //target,toElement,srcElement,currentTarget
+    //clientX,clientY,screenX,screenY
+    //altkey,ctrlkey,shiftkey,keyCode
+
+    // document.getElementById('images').addEventListener('click',(e)=>{
+    //     console.log(   `clicked iside the ul`);
+        
+    // },false)
+    // document.getElementById('owl').addEventListener('click',(e)=>{
+    //     console.log(   `clicked owl`);
+    //     e.stopPropagation()//event bubbling rukjndi a ehde nl
+        
+    // },false)//default bhi flase hi hota hai but kaam kyahai-> eventbubbling and event capturing thing lyi use hunda hai
+    //hum ye krege koini true and false dono krk
+   
+    //bubbling up hundi a-> pehle andr vala run hunda then bahr vala event run hojanda a ehnu bolde a bubblimh up eh default behvupu hai propagation da eh false krk hunda a , but ye bad thinf a
+    //but ehnu roln lyi hi e vala object use hunda a jide krk propagtion rukdi a
+
+// document.getElementById('images').addEventListener('click',(e)=>{
+//         console.log(   `clicked iside the ul`);
+        
+//     },true)
+//     document.getElementById('owl').addEventListener('click',(e)=>{
+//         console.log(   `clicked owl`);
+        
+//     },true)//->true case nu capturing phase bho bolde a josch pehla bahrla run hunda then andrla
+    //it depends on use case kya lena chiaye
+
+    //ab hum default behaivous chaht hi agoogle site te na leke jaye so we have preventDefault()
+    // document.getElementById('google').addEventListener('click',(e)=>{
+    //     e.stopPropagation()
+    //     console.log(`google clicked`);
+        
+    //     e.preventDefault()
+    // },false)
+
+    //++++++++++++++fun activit-jab click kru imahe then erase hojjjaye image+++++++++++
+    document.querySelector("#images").addEventListener('click',(e)=>{
+        // console.log(e.target.parentNode);//ehde nl li select hoega pura ik image da
+        console.log(e.target.tagName);
+        if(e.target.tagName==='IMG'){
+            console.log(e.target.id);
+            let removeIt=e.target.parentNode
+        removeIt.remove()
+        // removeIt.parentNode.removeChild(removeIt) this also wirks
+        }
+
+        
+        
+    },false)
+
+</script>
+</html>
