@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: black;">
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+</body >
+<script>
+//     function init() {
+//              let name = "Mozilla"; // name is a local variable created by init
+
+//        function displayName() {
+//         // displayName() is the inner function (closure)
+//         console.log(name); // uses variable from parent function
+//         }
+
+//     displayName();
+// }
+//     init();
+
+// lexical scoping
+
+// function outer(){
+//     let username="hitesh"
+//     console.log("outer",secret);
+    
+//     function inner(){
+//         let secret="my123"
+//         console.log("innere",username);
+
+        
+//     }
+//     function innertwo(){
+//         console.log("innerwto",username);
+//         console.log(secret);
+        
+        
+//     }
+//     inner()
+//     innertwo()
+// }
+// outer()
+// console.log("too outer ",username);
+
+//closure++++++++++++++++++++++++++++
+
+// function makeFunc() {
+//     const name = "Mozilla";
+
+//     function displayName() {
+//         console.log(name);
+//     }
+
+//     return displayName;
+// }
+// // although fxn scope khtm ogya c frvi yaad rkahrea inner fnc cheeja nu ehnu nu hi clouser bolde, basicly inner outer fxn dono jande ne
+// //memory and lexical scope jayega basically myFunc ch
+
+// const myFunc = makeFunc();
+// myFunc();
+
+//ab closure ka real life example lende a
+
+
+</script>
+<script>
+    // document.getElementById('orange').onclick=function(){
+    //     document.body.style.backgroundColor='orange'
+    // }
+    // document.getElementById('green').onclick=function(){
+    //     document.body.style.backgroundColor='green'
+    // }
+    //but manlo 50 buttons color krne hon then? so hum fucntion bna lene a
+
+    function clickHandler(color){
+        // document.body.style.backgroundColor=`${color}` 
+        return function(){//yaha ara hai kaaam closure basicaly lexical scope pura jarea a
+            document.body.style.backgroundColor=`${color}` 
+        }
+    }
+    document.getElementById('orange').onclick=clickHandler("orange")
+    document.getElementById('green').onclick=clickHandler("green")
+    // ye nhi wok kreya kyuki clickhandleer runs instantly so we need to return fxn to onclick so retun vala krk chlega
+</script>
+</html>
